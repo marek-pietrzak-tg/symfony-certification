@@ -27,5 +27,9 @@ class GreetCommand extends Command
         }
 
         $output->writeln($message);
+        $output->writeln('<info>Green text</info>');
+        $output->writeln('<comment>Yellow text</comment>');
+        $output->writeln('<question>Black text on cyan background</question>');
+        $output->writeln('<error>White text on red background</error>');
     }
 }
