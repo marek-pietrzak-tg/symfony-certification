@@ -50,5 +50,12 @@ class GreetCommand extends Command
 
         /*---------------------- custom style in tag ----------------------------*/
         $output->writeln('<fg=magenta;bg=green;options=bold>Custom style in tag</fg=magenta;bg=green;options=bold>');
+
+        /*---------------------- verbosity ----------------------------*/
+        if (OutputInterface::VERBOSITY_NORMAL < $output->getVerbosity()) {
+            $output->writeln("This text is visible only when verbosity level is higher than normal");
+        } else {
+            $output->writeln('To see hidden text use -v option');
+        }
     }
 }
