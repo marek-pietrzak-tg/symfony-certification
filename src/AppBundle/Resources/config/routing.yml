@@ -1,0 +1,5 @@
+lorem_ipsum:
+  pattern: lorem-ipsum
+  defaults:
+    _controller: FrameworkBundle:Template:template
+    template: static/lorem_ipsum.html.twig
