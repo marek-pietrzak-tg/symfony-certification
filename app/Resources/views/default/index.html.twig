@@ -1,5 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    Homepage.
+    {% set hello = '<strong>Hello</strong>' %}
+    {% autoescape 'js' %}
+        {{ hello }} {# \x3Cstrong\x3EHello\x3C\x2Fstrong\x3E #}
+    {% endautoescape %}
+
+    {% autoescape 'html' %}
+        {{ hello }} {# &lt;strong&gt;Hello&lt;/strong&gt; #}
+    {% endautoescape %}
+
+    {% autoescape 'html' %}
+        {{ hello|raw }} {# <strong>Hello</strong> #}
+    {% endautoescape %}
+
+    {% embed 'teasers_skeleton.html.twig' %}
+        {% block bottom_teaser %}
+            {% filter upper %}
+                <p>This is content for the bottom teaser box <b>overridden</b> in the embedding template</p>
+            {% endfilter %}
+        {% endblock %}
+    {% endembed %}
+
+    {% set weekdays = { 1: 'Monday', 2: 'Tuesday', 3: 'Wednesday' } %}
+    {% for keys, days in weekdays %}
+        {{ keys ~ ": " ~ days }}
+    {% endfor %}
+
 {% endblock %}
