@@ -27,4 +27,11 @@
         {{ keys ~ ": " ~ days }}
     {% endfor %}
 
+    {% macro input(name, value, type) %}
+        <input type="{{ type }}" name="{{ name }}" value="{{ value }}" />
+    {% endmacro %}
+
+    {% import _self as forms %}
+    <p>Username: {{ forms.input("username", "marek", "text") }}</p>
+    <p>Password: {{ forms.input("password", null, "password") }}</p>
 {% endblock %}
