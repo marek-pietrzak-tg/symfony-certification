@@ -8,6 +8,7 @@
 
     {% autoescape 'html' %}
         {{ hello }} {# &lt;strong&gt;Hello&lt;/strong&gt; #}
+        {{ '<p><u>This is not escaped</u></p>' }}
     {% endautoescape %}
 
     {% autoescape 'html' %}
@@ -34,4 +35,6 @@
     {% import _self as forms %}
     <p>Username: {{ forms.input("username", "marek", "text") }}</p>
     <p>Password: {{ forms.input("password", null, "password") }}</p>
+
+    {{ "this is a __markdown__ custom _twig extension_ `test`"|md2html }}
 {% endblock %}
