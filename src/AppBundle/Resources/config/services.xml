@@ -23,6 +23,9 @@
     </services>
     -->
     <services>
+        <service id="kernel.listener.app_error" class="AppBundle\EventListener\KernelListener">
+            <tag name="kernel.event_listener" event="kernel.exception" method="onKernelException" />
+        </service>
         <service id="app.markdown" class="AppBundle\Utils\Markdown">
         </service>
         <service id="app.twig_extension" class="AppBundle\Twig\AppExtension" public="false">
