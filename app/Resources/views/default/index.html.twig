@@ -37,4 +37,6 @@
     <p>Password: {{ forms.input("password", null, "password") }}</p>
 
     {{ "this is a __markdown__ custom _twig extension_ `test`"|md2html }}
+
+    {{ path("lorem_ipsum", relative=true) }} vs {{ url("lorem_ipsum", schemeRelative=true) }}
 {% endblock %}
